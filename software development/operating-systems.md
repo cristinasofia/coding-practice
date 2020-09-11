@@ -39,19 +39,19 @@ When loaded into memory it becomes a process, and it can be divided into four se
 A thread is a sub-task of processes.
 - Multithreading allows for concurrent (simultaenous) execution of two or more parts of a program to maximize utilization of CPU.
 - Allows you to write code in one program and listen to music in the other.
-### Concurrency
+## Concurrency
 The ability of your program to deal with many things at once, which is achieved through multithreading. 
-#### Concurrency vs. Parallelism:
+### Concurrency vs. Parallelism:
 **Concurrency** is dealing with many things at once. **Parallelism** is doing lots of things at once.
 - An application can be **concurrent but not parallel** when processes more than one task at same time, but no two tasks execute at the same time.
 - An application can be **parallel but not concurrent** when it processes multiple sub-tasks of a task in multi-core CPU at the same time.
 - An application can be **neither concurrent nor parallel** when it processes all tasks one at a time (sequentially).
 - An application can be **both concurrent and parallel** when it processes multiple tasks concurrently in multi-core CPU at the same time.
 
-**Context switching** is the technique where CPU time is shared accross all running processes and is key for multitasking.
-**Thread pools** allow decoupling task submission and execution.
-**Locks** are a synchronization technique used to limit access to a resource in an environment where there are many threads of execution. An example of a lock is a **mutex** which is used to guard shared data such as a linked-list, an array, or any simple primitive type. A mutex allows only a single thread to access a resource.
-**Thread safety** is a concept that means different threads can access the same resources without exposing erroneous behavior or producing unpredictable results, such as a race condition of deadlock.
+- **Context switching** is the technique where CPU time is shared accross all running processes and is key for multitasking.
+- **Thread pools** allow decoupling task submission and execution.
+- **Locks** are a synchronization technique used to limit access to a resource in an environment where there are many threads of execution. An example of a lock is a **mutex** which is used to guard shared data such as a linked-list, an array, or any simple primitive type. A mutex allows only a single thread to access a resource.
+- **Thread safety** is a concept that means different threads can access the same resources without exposing erroneous behavior or producing unpredictable results, such as a race condition of deadlock.
 - A **deadlock** happens when two or more threads aren't able to many any progress because resource required by first thread is held by the second, and resource required by second is held by first.
     - How to avoid:
         1. Avoid nested locks: Don't give locks to multiple threads.
