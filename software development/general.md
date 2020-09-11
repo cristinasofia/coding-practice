@@ -1,13 +1,13 @@
 
 ## Four Pillars of Object-Oriented Programming
- - Encapsulation
+1. Encapsulation
     Binding together data and the functions that manipulate them.
-- Abstraction
-    <p>Providing only essential information about data while hiding the details or implementation.</p>
-    <h3>Inheritance</h3>
-    <p>Ability of a class to derive properties and characteristics from another class.</p>
-    <h3>Polymorphism</h3>
-    <p>Define one interface and have multiple implementations.</p>
+2. Abstraction
+    Providing only essential information about data while hiding the details or implementation.
+3. Inheritance
+    Ability of a class to derive properties and characteristics from another class.</p>
+4. Polymorphism
+    Define one interface and have multiple implementations.
     <ul>
         <li>
             <p>Polymorphism with class methods:</p>
@@ -43,24 +43,22 @@
         </li>
     </ul>
 ## S.O.L.I.D Principles
-    <h3>Single Responsibility Principle</h3>
-    <p>A class should have a single job.</p>
-    <pre>
-    <code>
-        class User:
-        def __init__(self, name: str):
-            self.name = name
-        def get_name(self)->str:
-            pass
-        def save(self, user: User):
-            pass
-    </code>
-    </pre>
-    <h3>Open-Closed Principle</h3>
-    <p>Open for extension, not modification.</p>
-    <h3>Liskov Substitution Principle</h3>
-    <p>Classes are completely isolated and unaware of changes in the class hierarchy.</p>
-    <h3>Interface Segregation Principle</h3>
-    <p></p>
-    <h3>Dependency Inversion Principle</h3>
-    <p></p>
+1. Single Responsibility Principle
+A class should have a single job.
+<pre>
+<code>
+    class User:
+    def __init__(self, name: str):
+        self.name = name
+    def get_name(self)->str:
+        pass
+    def save(self, user: User):
+        pass
+</code>
+</pre>
+2. Open-Closed Principle
+    Open for extension, not modification.
+3. Liskov Substitution Principle
+    Classes are completely isolated and unaware of changes in the class hierarchy.
+4. Interface Segregation Principle
+5. Dependency Inversion Principle
