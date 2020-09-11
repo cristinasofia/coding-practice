@@ -11,7 +11,7 @@
 <h2>S.O.L.I.D Principles</h2>
     <h3>Single Responsibility Principle</h3>
     <p>A class should have a single job.</p>
-    '''python
+    ```
     class User:
         def __init__(self, name: str):
             self.name = name
@@ -21,7 +21,7 @@
         
         def save(self, user: User):
             pass
-    '''
+    ```
     <h3>Abstraction</h3>
     <p></p>
     <h3>Inheritance</h3>
