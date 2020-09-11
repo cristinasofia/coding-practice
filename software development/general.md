@@ -1,8 +1,8 @@
 
-<h2>Four Pillars of Object-Oriented Programming</h2>
-    <h3>Encapsulation</h3>
-    <p>Binding together data and the functions that manipulate them.</p>
-    <h3>Abstraction</h3>
+## Four Pillars of Object-Oriented Programming
+ - Encapsulation
+    Binding together data and the functions that manipulate them.
+- Abstraction
     <p>Providing only essential information about data while hiding the details or implementation.</p>
     <h3>Inheritance</h3>
     <p>Ability of a class to derive properties and characteristics from another class.</p>
@@ -42,7 +42,7 @@
                 </pre>
         </li>
     </ul>
-<h2>S.O.L.I.D Principles</h2>
+## S.O.L.I.D Principles
     <h3>Single Responsibility Principle</h3>
     <p>A class should have a single job.</p>
     <pre>
