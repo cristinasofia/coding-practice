@@ -14,31 +14,21 @@ When loaded into memory it becomes a process, and it can be divided into four se
    - Program counter.
 4. Data
    - Contains global and static variables.
-### Process Life Cycle
-1. Start
-2. Ready
-3. Running
-4. Waiting
-5. Terminated or Exit
-### Process Control Block (PCB)
-- C
-- Dependent on OS
-- Maintained for lifetime of process
-- Deleted once process terminates
-1. Process State
-2. Process privileges
-3. Process ID
-4. Pointer
-5. Program Counter
-6. CPU registers
-7. CPU scheduling information
-8. Memory management information
-9. Accounting information
-10. IO status information
 ## Threads
 A thread is a sub-task of processes.
 - Multithreading allows for concurrent (simultaenous) execution of two or more parts of a program to maximize utilization of CPU.
 - Allows you to write code in one program and listen to music in the other.
+## Threads vs Processes
+- A process can be thought of as an instance of a program in execution. A process is an independent entity to
+which system resources (e.g., CPU time and memory) are allocated. Each process is executed in a separate address space, and one process cannot access the variables and data structures of another process. If a process wishes to access another process' resources, inter-process communications have to be used. These
+include pipes, files, sockets, and other forms.
+- A thread exists within a process and shares the process' resources (including its heap space). Multiple
+threads within the same process will share the same heap space. This is very different from processes, which
+cannot directly access the memory of another process. Each thread still has its own registers and its own
+stack, but other threads can read and write the heap memory.
+- A thread is a particular execution path of a process. When one thread modifies a process resource, the
+change is immediately visible to sibling threads.
+
 ## Concurrency
 The ability of your program to deal with many things at once, which is achieved through multithreading. 
 ### Concurrency vs. Parallelism:
@@ -49,6 +39,8 @@ The ability of your program to deal with many things at once, which is achieved 
 - An application can be **both concurrent and parallel** when it processes multiple tasks concurrently in multi-core CPU at the same time.
 
 - **Context switching** is the technique where CPU time is shared accross all running processes and is key for multitasking.
+  - A context switch is the time spent switching between two processes (Le., bringing a waiting process into execution and sending an executing process into waiting/terminated state). This happens in multitasking. The operating system must bring the state information of waiting processes into memory and save the state information of the currently running process. 
+  - To measure the time spent in a context switch: we would like to record the timestamps of the last and first instruction of the swapping processes. The context switch time is the difference in the timestamps between the two processes. 
 - **Thread pools** allow decoupling task submission and execution.
 - **Locks** are a synchronization technique used to limit access to a resource in an environment where there are many threads of execution. An example of a lock is a **mutex** which is used to guard shared data such as a linked-list, an array, or any simple primitive type. A mutex allows only a single thread to access a resource.
 - **Thread safety** is a concept that means different threads can access the same resources without exposing erroneous behavior or producing unpredictable results, such as a race condition of deadlock.
