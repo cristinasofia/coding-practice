@@ -24,16 +24,6 @@ class Solution(object):
             nums[low], nums[r] = nums[r], nums[low]
             return low
 
-        # for understanding kth smallest element
-        def quicksort(l, r):
-            if len(nums) == 1:
-                return nums
-            if l < r:
-                pos = partition(l, r)
-
-                quicksort(l, pos + 1)
-                quicksort(pos + 1, r)
-
         def findKthSmallest(l, r, k):
             if nums:
                 # make a guess

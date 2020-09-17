@@ -7,12 +7,12 @@ class Solution(object):
             if r == n:
                 paren.append(''.join(p))
             else:
-                if l > r:
+                if l > r: # add closed parentheses
                     backtrack(p + ")", l, r+1)
-                if l < n:
+                if l < n: # add open parentheses
                     backtrack(p + "(", l+1, r)
                     
-        p = ""   
+        p = ""
         backtrack(p, 0, 0)
         
         return paren
