@@ -126,8 +126,7 @@ def quickSort(l, r):
 ## Binary Search
 
 ### Iterative
-<pre>
-<code class="python">
+```python
 # x is the target
 l = 0
 r = len(A) - 1
@@ -143,11 +142,10 @@ def binarySearch(l, r):
             r = m - 1
 
     return -1
-</code>
-</pre>
+```
 
 ### Recursive
-```mermaid
+```python
 # x is the target
 l = 0
 r = len(A) - 1
