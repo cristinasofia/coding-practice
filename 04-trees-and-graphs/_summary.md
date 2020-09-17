@@ -56,12 +56,9 @@
 ### AVL
 Stores in each node the height of the subtrees rooted at this node. <br>
 Check if height balanced: height of left subtree and height of right subtree differ by 1:<br>
-<center>
-  <code>
+```
   balance(n) = n.left.height - n.right.height
-  </code>
-</center>
-<br>
+```
 
 **Inserts** <br>
 Upon insertion, balance might change to -2 or 2. <br>

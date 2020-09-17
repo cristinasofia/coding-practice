@@ -12,8 +12,7 @@ https://leetcode.com/problems/connecting-cities-with-minimum-cost/
 Follows a path from the starting node to an ending node, then another path from start to end, etc. until all nodes are visited.
 1.	Pick a node. If unvisited, mark it as visited and recur on all adjacent nodes.
 2.	Repeat until all nodes are visited, or node to be searched is found.
-<pre>
-<code>
+```python
 visited = set()
 def DFS (grid, v):
 	if v in visited:
@@ -24,8 +23,7 @@ labeled as “discovered”
 	for neighbor in grid[v]:	# neighbors = vertices 
 adjacent to v		  
 DFS (grid, neighbor)		    # recursion
-</code>
-</pre>
+```
 
 https://leetcode.com/problems/number-of-islands/
 https://leetcode.com/problems/friend-circles/

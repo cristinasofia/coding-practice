@@ -89,8 +89,7 @@
 3. Keep partitioning until sorted
 
 <span style="color:red">O(n^2)</span> Partitioned element is not guaranteed to be the median or anywhere near the median, thus can be slow.
-<pre>
-<code>
+```python
 def partition(l, r):
     low = l
     while l < r:
@@ -107,8 +106,7 @@ def quickSort(l, r):
         quickSort(pos + 1, r)       # go right
     if l < pos:             
         quickSort(l, pos - 1)       # go left
-</code>
-</pre>
+```
 
 ## Merge Sort
 1. Divide and conquer

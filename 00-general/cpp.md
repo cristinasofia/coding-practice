@@ -53,8 +53,7 @@ The process of binding the data and the functions acting on the data together in
 1. Public: All class members will be available to everyone.
 2. Private: Class members declared as private can be access only by the functions inside the class.
 3. Protected: Class member declared as Protected are inaccessible outside the class but they can be accessed by any subclass (derived class) of that class.
-<pre>
-<code>
+```
 class Parent:
 {
     protected:
@@ -73,8 +72,8 @@ class Child : public Parent
         cout >> parent_id >> endl;
     }
 }
-</code>
-</pre>
+```
+
 - **Friend class** can access private and protected members of other class in which it is declared as friend.
 
 ## Abstraction

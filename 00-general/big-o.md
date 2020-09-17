@@ -46,8 +46,8 @@ Usually for iterating all permutations.
     </tr>
     <tr>
       <td><a href="http://en.wikipedia.org/wiki/Array_data_structure">Array</a></td>
-      <td style="color:green">Θ(1)</td>
-      <td style="color:#CCCC00">Θ(n)</td>
+      <td><div class="text-green">Θ(1)</div></td>
+      <td><div class="text-yellow">Θ(n)</div></td>
       <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:green">O(1)</td>
@@ -118,7 +118,7 @@ Usually for iterating all permutations.
     </tr>
     <tr>
       <td><a href="http://en.wikipedia.org/wiki/Binary_search_tree">Binary Search Tree</a></td>
-      <td style="color:#9acd32">Θ(log(n))</td>
+      <td><<div class="text-green-light">Θ(log(n))</div></td>
       <td style="color:#9acd32">Θ(log(n))</td>
       <td style="color:#9acd32">Θ(log(n))</td>
       <td style="color:#9acd32">Θ(log(n))</td>
