@@ -46,8 +46,8 @@ Usually for iterating all permutations.
     </tr>
     <tr>
       <td><a href="http://en.wikipedia.org/wiki/Array_data_structure">Array</a></td>
-      <td style="color:green">Θ(1)</td>
-      <td style="color:#CCCC00">Θ(n)</td>
+      <td>-![green](Θ(1))</td>
+      <td>-![#CCCC00](Θ(n))</td>
       <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:green">O(1)</td>
