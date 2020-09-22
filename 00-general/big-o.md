@@ -19,7 +19,6 @@ Usually for iterating through all subsets.
 ### O(n!)
 Usually for iterating all permutations.
 
-<html>
 <table>
     <tbody><tr>
       <th>Data Structure</th>
@@ -46,8 +45,8 @@ Usually for iterating all permutations.
     </tr>
     <tr>
       <td><a href="http://en.wikipedia.org/wiki/Array_data_structure">Array</a></td>
-      <td>-![green](Θ(1))</td>
-      <td>-![#CCCC00](Θ(n))</td>
+      <td style="color:green">Θ(1)</td>
+      <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:#CCCC00">Θ(n)</td>
       <td style="color:green">O(1)</td>
@@ -245,4 +244,3 @@ Usually for iterating all permutations.
 
   </tbody>
 </table>
-</html>

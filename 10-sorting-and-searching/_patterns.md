@@ -89,6 +89,7 @@
 3. Keep partitioning until sorted
 
 <span style="color:red">O(n^2)</span> Partitioned element is not guaranteed to be the median or anywhere near the median, thus can be slow.
+
 ```python
 def partition(l, r):
     low = l

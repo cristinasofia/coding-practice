@@ -176,6 +176,128 @@ $$2^k - 1 $$
 - Post-Order: Left, Right, Root
 
 
+```python
+def hasPathSum1(self, root, sum):
+    res = []
+    self.dfs(root, sum, res)
+    return any(res)
+    
+def dfs(self, root, target, res):
+    if root:
+        if not root.left and not root.right and root.val == target:
+            res.append(True)
+        if root.left:
+            self.dfs(root.left, target-root.val, res)
+        if root.right:
+            self.dfs(root.right, target-root.val, res)
+
+# DFS with stack
+def hasPathSum2(self, root, sum):
+    if not root:
+        return False
+    stack = [(root, root.val)]
+    while stack:
+        curr, val = stack.pop()
+        if not curr.left and not curr.right and val == sum:
+            return True
+        if curr.right:
+            stack.append((curr.right, val+curr.right.val))
+        if curr.left:
+            stack.append((curr.left, val+curr.left.val))
+    return False
+    
+# BFS with queue
+def hasPathSum(self, root, sum):
+    if not root:
+        return False
+    queue = [(root, sum-root.val)]
+    while queue:
+        curr, val = queue.pop(0)
+        if not curr.left and not curr.right and val == 0:
+            return True
+        if curr.left:
+            queue.append((curr.left, val-curr.left.val))
+        if curr.right:
+            queue.append((curr.right, val-curr.right.val))
+    return False
+```
+
+## Traversing Nodes
+```python
+    while node:
+        if current node > target node:
+            go left
+        if current node < target node:
+            go right
+```
+Good for:
+- Lowest common ancestor of binary search tree
+- Inorder successor
+
+## Counting Nodes
+```python
+    def helper(root):
+        # identify here if we are searching for all nodes, internal, leaves, etc. 
+        count = 1
+
+        # visit left then right
+        if root.left:
+            count += helper(root.left)
+        if root.right:
+            count += helper(root.right)
+        return count
+
+    
+    total = 0
+    if root:
+        total = helper(root)
+    return total
+```
+
+## BFS with Queue
+Pop from left, then go left, then go right
+```python
+    if not root:
+        return True
+    
+    q = [root]
+    while q:
+        # pop left
+        n = q.pop(0)
+        if n.left:
+            # left conditions
+            q.append(n.left)
+        if n.right:
+            # right conditions
+            q.append(n.right)
+    
+    return True
+```
+Good for:
+- Validating a BST
+
+## DFS with Stack
+Pop from right, then go right, then go left
+```python
+    if not root:
+        return True
+    
+    s = [root]
+    while s:
+        # pop right
+        n = s.pop()
+        if n.right:
+            # right conditions
+            s.append(n.right)
+        if n.left:
+            # leftt conditions
+            s.append(n.leftt)
+    
+    return True
+```
+Good for:
+- Depth of binary tree
+- Finding a path sum
 
 ### Minimum Spanning Trees
 In a weighted, connected, undirected graph, a spanning tree is a tree that connects all the vertices. The minimum spanning tree is the spanning tree with minimum weight. There are various algorithms to do this.
@@ -184,22 +306,3 @@ A self-balancing search tree (not a binary search tree) that is commonly used on
 
 ### Interval Trees
 An extension of a balanced binary search tree, but storing intervals (low -> high ranges) instead of simple values. A hotel could use this to store a list of all reservations and then effiCiently detect who is staying at the hotel at a particular time. 
-
-# Graphs
-
-### Graph coloring
-A way of coloring the nodes in a graph such that no two adjacent vertices have the same color. There are various algorithms to do things like determine if a graph can be colored with only
-K colors.
-
-### Bipartite Graph: 
-A bipartite graph is a graph where you can divide its nodes into two sets such that every edge stretches across the two sets (that is, there is never an edge between two nodes in the same
-set). There is an algorithm to check if a graph is a bipartite graph. Note that a bipartite graph is equivalent to a graph that can be colored with two colors. 
-
-### Bellman-Ford Algorithm: 
-Finds the shortest paths from a single node in a weighted directed graph with positive and negative edges.
-
-### Floyd-Warshall Algorithm 
-Finds the shortest paths in a weighted graph with positive or negative weight edges (but no negative weight cycles). 
-
-### A*
-Find the least-cost path between a source node and a goal node (or one of several goal nodes). It extends Dijkstra's algorithm and achieves better performance by using heuristics.

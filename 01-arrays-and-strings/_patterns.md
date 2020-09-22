@@ -1,3 +1,45 @@
+## Complexity
+- Accessing an element is **O(1)** constant because of indexing.
+- Searching, insertion, and deletion is **O(n)** because it involves going through all elements of the array.
+
+- Python
+  - **O(1)**: Get/set an element, and append
+  - **O(n)**: Copy, insert, delete, x in s
+   
+<table>
+    <tbody><tr>
+      <th>Data Structure</th>
+      <th colspan="8">Time Complexity</th>
+      <th>Space Complexity</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th colspan="4">Average</th>
+      <th colspan="4">Worst</th>
+      <th>Worst</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Access</th>
+      <th>Search</th>
+      <th>Insertion</th>
+      <th>Deletion</th>
+      <th>Access</th>
+      <th>Search</th>
+      <th>Insertion</th>
+      <th>Deletion</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Array</td>
+      <td style="color:green">Θ(1)</td>
+      <td colspan = "3" style="color:#CCCC00">Θ(n)</td>
+      <td style="color:green">O(1)</td>
+      <td colspan = "3" style="color:#CCCC00">O(n)</td>
+      <td style="color:#CCCC00">O(n)</td>
+    </tr>
+</tbody></table>
+
 ## Sliding Window
 Start grows in inner loop and end grows in outer loop. <br>
 Counter used for problem specification. <br>
@@ -27,14 +69,9 @@ Counter used for problem specification. <br>
     # update result if finding maximum
     max_len = max(max_len, end – start)
 ```
-
-[Min Window Substring](https://leetcode.com/problems/minimum-window-substring/)<br>
-[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)<br>
-[Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)<br>
-[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/)<br>
-[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)<br>
-[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)<br>
-[Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)<br>
+[1](/01-arrays-and-strings/sliding-window/fruit-into-baskets.py)
+[2](/01-arrays-and-strings/sliding-window/longest-repeating-character-replacement.py)
+[3](/01-arrays-and-strings/sliding-window/longest-substring-with-at-most-two-distinct-characters.py)
 
 ## Fast and Slow
 Fast pointer moves through same array at greater pace than slow.

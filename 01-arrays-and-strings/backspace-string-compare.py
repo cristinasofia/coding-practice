@@ -15,6 +15,24 @@ class Solution(object):
             return stack
         
         return build(S) == build(T)
+    
+    def backspaceCompare_withoutStack(self, S, T):
+
+        def build(x):
+            a = []
+            skip = 0
+
+            for i in reversed(x):
+                if i == '#':
+                    skip += 1
+                elif skip:
+                    skip -= 1
+                else:
+                    a.append(i) # append only characters
+            
+            return a
+        
+        return build(S) == build(T)
 
 def main():
     # Given two strings S and T, return if they are equal when both are typed into empty text editors. '#' means backspace character.
@@ -35,6 +53,8 @@ def main():
     print(obj.backspaceCompare(S, T))
     print(obj.backspaceCompare(S2, T2))
     print(obj.backspaceCompare(S3, T3))
+
+    # O(len(S) + len(T))
 
 if __name__ == "__main__":
     main()

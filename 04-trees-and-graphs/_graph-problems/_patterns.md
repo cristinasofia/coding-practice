@@ -21,8 +21,8 @@ def DFS (grid, v):
 visited.add(v) 				    # v = initial vertex 
 labeled as “discovered”
 	for neighbor in grid[v]:	# neighbors = vertices 
-adjacent to v		  
-DFS (grid, neighbor)		    # recursion
+		adjacent to v		  
+		DFS (grid, neighbor)		    # recursion
 ```
 
 https://leetcode.com/problems/number-of-islands/
@@ -52,6 +52,24 @@ https://leetcode.com/problems/find-the-town-judge/
 ## Cycle Find
 
 # BFS
+Proceeds ‘level by level’, visiting all nodes on one level before moving on to the next.
+1.	Pick a node, visit the adjacent unvisited vertex, mark as visited, and insert it in a queue.
+2.	If no adjacent vertices left, remove first vertex from queue.
+3.	Repeat 1 & 2 until queue is empty or node to be searched is found.
+```python
+visited = []
+queue = []
+
+visited.append(node)
+queue.append(node)
+while queue:					# while queue not empty
+	v = queue.pop(0) 				# remove from front of queue
+	for neighbor in grid[v]:		# search all adjacent vertices to v
+		if neighbor not in visited:
+			visited.append(neighbor)# mark neighbor as “visited”
+			queue.append(neighbor) 	# add to back of queue
+```
+
 https://leetcode.com/problems/01-matrix/
 https://leetcode.com/problems/as-far-from-land-as-possible/
 https://leetcode.com/problems/rotting-oranges/
@@ -71,3 +89,15 @@ https://leetcode.com/problems/course-schedule-ii/
 https://leetcode.com/problems/network-delay-time/
 https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 https://leetcode.com/problems/cheapest-flights-within-k-stops/
+
+## Prim's and Kruskal's algorithm
+https://leetcode.com/problems/optimize-water-distribution-in-a-village/
+
+## Strongly Connected Components: Tarjan's Algorithm 
+https://leetcode.com/problems/critical-connections-in-a-network/
+
+## Hierholzer's algorithm for Eulerian circuits
+https://leetcode.com/problems/reconstruct-itinerary/
+
+## A* search
+https://leetcode.com/problems/sliding-puzzle/
