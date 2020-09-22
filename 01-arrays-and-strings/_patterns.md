@@ -133,3 +133,48 @@ Each pointer moves independently.
 ```
 
 [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)
+
+## K-th Problems
+1. By sorting
+```python
+nums.sort(key = lambda x: x)
+return nums[:K]
+```    
+2. By minheap
+```python
+import heapq
+# returns K smallest elements
+return heapq.nsmallest(K, nums, key=lambda x: x)
+# return K largest elements 
+return heapq.nlargest(K, nums, key=lambda x: x) 
+```
+3. By quickselect
+```python  
+def by_quickselect(self, points, K):
+  
+    def partition(l, r):
+        low = l
+        while l < r:
+            if nums[l] < nums[r]:
+                nums[l], nums[low] = nums[low], nums[l]
+                low += 1
+            l += 1
+        
+        nums[r], nums[low] = nums[low], nums[r]
+        return low
+        
+    def select(l, r):
+        
+        pos = partition(l, r)
+        if K > pos:
+            # go right
+            return select(pos+1,r)
+        elif K < pos:
+            # go left
+            return select(l, pos-1)
+        else:
+            return nums[pos]
+        
+        
+    return select(0, len(points)-1)
+```

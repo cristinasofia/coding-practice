@@ -158,7 +158,7 @@ Upon insertion, balance might change to -2 or 2. <br>
 
 
 ## Complete Binary Tree
-- Every level of tree is filled, except for perhaps the first level.
+- Every level of tree is filled, except for perhaps the last level.
 - Filled form left to right.
 
 ## Full Binary Tree
