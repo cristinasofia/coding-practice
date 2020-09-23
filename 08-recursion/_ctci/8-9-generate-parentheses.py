@@ -16,6 +16,29 @@ class Solution(object):
         backtrack(p, 0, 0)
         
         return paren
+        
+    def generateParenthesis2(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        
+        paren = []
+        def backtrack(p, l, r):
+            if l == 0 and r == 0:
+                paren.append(''.join(p))
+            else:
+                if l != 0:
+                    backtrack(p + "(", l - 1, r)
+                if r > l:
+                    backtrack(p + ")", l, r - 1)
+                    
+                
+                
+        p = ""   
+        backtrack(p, n, n)
+        
+        return paren
 
 def main():
     obj = Solution()
