@@ -3,10 +3,6 @@
 ## Complexity
 - Accessing an element is **O(1)** constant because of indexing.
 - Searching, insertion, and deletion is **O(n)** because it involves going through all elements of the array.
-
-- Python
-  - **O(1)**: Get/set an element, and append
-  - **O(n)**: Copy, insert, delete, x in s
    
 <table>
     <tbody><tr>
@@ -34,10 +30,10 @@
     </tr>
     <tr>
       <td>Array</td>
-      <td style="color:green">Θ(1)</td>
-      <td colspan = "3" style="color:#CCCC00">Θ(n)</td>
       <td style="color:green">O(1)</td>
-      <td colspan = "3" style="color:#CCCC00">O(n)</td>
+      <td align="center" colspan = "3" style="color:#CCCC00">O(n)</td>
+      <td style="color:green">O(1)</td>
+      <td align="center" colspan = "3" style="color:#CCCC00">O(n)</td>
       <td style="color:#CCCC00">O(n)</td>
     </tr>
 </tbody></table>
@@ -128,7 +124,6 @@ Each pointer moves independently.
 ## K-th Problems
 
 1. By sorting
-- 
 ```python
 nums.sort(key = lambda x: x)
 return nums[:K]
