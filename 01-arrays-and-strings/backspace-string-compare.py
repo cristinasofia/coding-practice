@@ -1,60 +1,57 @@
-class Solution(object):
-    def backspaceCompare(self, S, T):
 
-        def build(x):
-            stack = []
+def backspaceCompare(S, T):
 
-            for i in x:
-                if i == '#' and stack:
-                    stack.pop() # backspace on last element of stack
-                elif i == '#':
-                    continue # cannot pop an empty stack
-                else:
-                    stack.append(i) # append only characters
-            
-            return stack
+    def build(x):
+        stack = []
+
+        for i in x:
+            if i == '#' and stack:
+                stack.pop() # backspace on last element of stack
+            elif i == '#':
+                continue # cannot pop an empty stack
+            else:
+                stack.append(i) # append only characters
         
-        return build(S) == build(T)
+        return stack
     
-    def backspaceCompare_withoutStack(self, S, T):
+    return build(S) == build(T)
 
-        def build(x):
-            a = []
-            skip = 0
+def backspaceCompare_withoutStack(S, T):
 
-            for i in reversed(x):
-                if i == '#':
-                    skip += 1
-                elif skip:
-                    skip -= 1
-                else:
-                    a.append(i) # append only characters
-            
-            return a
+    def build(x):
+        a = []
+        skip = 0
+
+        for i in reversed(x):
+            if i == '#':
+                skip += 1
+            elif skip:
+                skip -= 1
+            else:
+                a.append(i) # append only characters
         
-        return build(S) == build(T)
-
-def main():
-    # Given two strings S and T, return if they are equal when both are typed into empty text editors. '#' means backspace character.
+        return a
     
-    S = "ab#c"
-    T = "ad#c"
-    # True. Both S and T become "ac"
+    return build(S) == build(T)
 
-    S2 = "a#c"
-    T2 = "b"
-    # False. S becomes "c" while T becomes "b"
 
-    S3 = "y#fo##f"
-    T3 = "y#f#o##f"
-    # True. WATCH OUT FOR DOUBLE '#'
+# Given two strings S and T, return if they are equal when both are typed into empty text editors. '#' means backspace character.
 
-    obj = Solution()
-    print(obj.backspaceCompare(S, T))
-    print(obj.backspaceCompare(S2, T2))
-    print(obj.backspaceCompare(S3, T3))
+S = "ab#c"
+T = "ad#c"
+# True. Both S and T become "ac"
 
-    # O(len(S) + len(T))
+S2 = "a#c"
+T2 = "b"
+# False. S becomes "c" while T becomes "b"
 
-if __name__ == "__main__":
-    main()
+S3 = "y#fo##f"
+T3 = "y#f#o##f"
+# True. WATCH OUT FOR DOUBLE '#'
+
+print(backspaceCompare(S, T))
+print(backspaceCompare(S2, T2))
+print(backspaceCompare(S3, T3))
+
+# O(len(S) + len(T))
+

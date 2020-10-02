@@ -1,32 +1,29 @@
-class Solution(object):
-    def fib1(self, n):
 
+def fib1(n):
+
+    if n == 0 or n == 1:
+        return n
+    else:
+        return fib1(n-1) + fib1(n-2)
+
+def fib2(n):
+    
+    def fib_memo(n, memo):
+    
         if n == 0 or n == 1:
             return n
-        else:
-            return self.fib1(n-1) + self.fib1(n-2)
-    
-    def fib2(self, n):
-        
-        def fib_memo(n, memo):
-        
-            if n == 0 or n == 1:
-                return n
 
-            if n not in memo:
-                memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
+        if n not in memo:
+            memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
 
-            return memo[n]
+        return memo[n]
 
-        return fib_memo(n,[0]*(n+1))
+    return fib_memo(n,[0]*(n+1))
 
 
-def main():
-    obj = Solution()
-    x = 3
-    print(obj.fib1(x))
 
-    print(obj.fib2(x))
+x = 3
+print(fib1(x))
 
-if __name__ == "__main__":
-    main()
+print(fib2(x))
+

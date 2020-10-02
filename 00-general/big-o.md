@@ -1,26 +1,15 @@
-### O(1)
-A **constant-time** algorithm does not depend on input size.
+# Big-O
 
-### O(logn)
-A **logarithmic** algorithms halves the input time at every step.
-
-### O(n)
-A **linear** algorithm iterates through input a constant "n" number of times.
-
-### O(n logn)
-Usually for sorting.
-
-### O(n^2)
-A **quadratic** algorithm contains nested loops.
-
-### O(n^2 logn)
-### O(n^3)
-
-### O(2^n)
-Usually for iterating through all subsets.
-
-### O(n!)
-Usually for iterating all permutations.
+From best to worst:
+1. O(1): A **constant-time** algorithm does not depend on input size.
+2. O(logn): A **logarithmic** algorithms halves the input time at every step.
+3. O(n): A **linear** algorithm iterates through input a constant "n" number of times.
+4. O(n logn): Usually for sorting.
+5. O(n^2): A **quadratic** algorithm contains nested loops.
+6. O(n^2 logn)
+7. O(n^3)
+8. O(2^n): Usually for iterating through all subsets.
+9. O(n!): Usually for iterating all permutations.
 
 Note: An exponential function a^n where a > 1 grows faster than any polynomial n^b where b is any constant.
 
