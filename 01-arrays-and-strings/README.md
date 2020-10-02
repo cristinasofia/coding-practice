@@ -69,17 +69,6 @@ while end < len(arr):
 max_len = max(max_len, end – start)
 ```
 
-## Fast and Slow
-Fast pointer moves through same array at greater pace than slow.
-
-```python
-slow = arr[0]
-
-for fast in range(arr):
-    if slow condition:
-        slow = slow.next # slow += 1
-```
-
 
 ## Old and New State Pointers
 

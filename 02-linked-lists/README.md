@@ -36,6 +36,17 @@
   </tbody>
 </table>
 
+## Fast and Slow
+Fast pointer moves through same array at greater pace than slow.
+
+```python
+slow = arr[0]
+
+for fast in range(arr):
+    if slow condition:
+        slow = slow.next # slow += 1
+```
+
 ## Arrays vs. Linked Lists
 - Array have a fixed size, and linked list have dynamic size.
 - Array insertion and deletion is expensive, and linked lists are less expensive comparatively.

@@ -1,3 +1,143 @@
+# Big-O
+
+From best to worst:
+1. O(1): A **constant-time** algorithm does not depend on input size.
+2. O(logn): A **logarithmic** algorithms halves the input time at every step.
+3. O(n): A **linear** algorithm iterates through input a constant "n" number of times.
+4. O(n logn): Usually for sorting.
+5. O(n^2): A **quadratic** algorithm contains nested loops.
+6. O(n^2 logn)
+7. O(n^3)
+8. O(2^n): Usually for iterating through all subsets.
+9. O(n!): Usually for iterating all permutations.
+
+Note: An exponential function a^n where a > 1 grows faster than any polynomial n^b where b is any constant.
+
+<table>
+  <tbody>
+    <tr>
+      <th>Data Structure</th>
+      <th colspan="8">Time Complexity</th>
+      <th>Space Complexity</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th colspan="4">Average</th>
+      <th colspan="4">Worst</th>
+      <th>Worst</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Access</th>
+      <th>Search</th>
+      <th>Insertion</th>
+      <th>Deletion</th>
+      <th>Access</th>
+      <th>Search</th>
+      <th>Insertion</th>
+      <th>Deletion</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><a href="01-arrays-and-strings">Array</a></td>
+      <td style="color:green">O(1)</td>
+      <td align="center" style="color:#CCCC00" colspan="3">O(n)</td>
+      <td style="color:green">O(1)</td>
+      <td align="center" style="color:#CCCC00" colspan="4">O(n)</td>
+    </tr>
+    <tr>
+      <td><a href="02-linked-lists">Linked List</a></td>
+      <td align="center" style="color:#CCCC00" colspan="2">O(n)</td>
+      <td align="center" style="color:green" colspan="2">O(1)</td>
+      <td align="center" style="color:#CCCC00" colspan="2">O(n)</td>
+      <td align="center" style="color:green" colspan="2">O(1)</td>
+      <td style="color:#CCCC00">O(n)</td>
+    </tr>
+    <tr>
+      <td><a href="03-stacks-and-queues">Stack</a></td>
+      <td align="center" style="color:#CCCC00" colspan="2">O(n)</td>
+      <td align="center" style="color:green" colspan="2">O(1)</td>
+      <td align="center" style="color:#CCCC00" colspan="2">O(n)</td>
+      <td align="center" style="color:green" colspan="2">O(1)</td>
+      <td style="color:#CCCC00">O(n)</td>
+    </tr>
+    <tr>
+      <td><a href="03-stacks-and-queues">Queue</a></td>
+      <td align="center" style="color:#CCCC00" colspan="2">O(n)</td>
+      <td align="center" style="color:green" colspan="2">O(1)</td>
+      <td align="center" tyle="color:#CCCC00" colspan="2">O(n)</td>
+      <td align="center" style="color:green" colspan="2">O(1)</td>
+      <td style="color:#CCCC00">O(n)</td>
+    </tr>
+    <tr>
+      <td>Hash Table</td>
+      <td style="color:gray">N/A</td>
+      <td align="center" style="color:green" colspan="3">O(1)</td>
+      <td style="color:gray">N/A</td>
+      <td align="center" style="color:#CCCC00" colspan="4">O(n)</td>
+    </tr>
+    <tr>
+      <td><a href="04-trees-and-graphs">Binary Search Tree</a></td>
+      <td align="center" tyle="color:#9acd32" colspan="4">O(log(n))</td>
+      <td align="center" style="color:#CCCC00" colspan="5">O(n)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+      <th>Algorithm</th>
+      <th colspan="2">Time</th>
+      <th>Space</th>
+      <th colspan ="2">Comparison</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Average</th>
+      <th>Worst</th>
+      <th>Worst</th>
+    </tr>
+    <tr>
+      <td>Bubble Sort</td>
+      <td align="center" colspan="2" style="color:red">O(n^2)</td>
+      <td style="color:green">O(1)</td>
+    </tr>
+    <tr>
+      <td>Selection Sort</td>
+      <td align="center" colspan="2" style="color:red">O(n^2)</td>
+      <td style="color:green">O(1)</td>
+    </tr>
+    <tr>
+    <td>Insertion Sort</td>
+    <td align="center" colspan="2" style="color:red">O(n^2)</td>
+    <td style="color:green">O(1)</td>
+    </tr>
+    <tr>
+    <td>Quicksort</td>
+    <td style="color:orange">O(n log(n))</td>
+    <td style="color:red">O(n^2)</td>
+    <td style="color:#9acd32">O(log(n))</td>
+    </tr>
+    <tr>
+    <td>Mergesort</td>
+    <td align="center" colspan="2" style="color:orange">O(n log(n))</td>
+    <td style="color:#CCCC00">O(n)</td>
+    </tr>
+    <tr>
+    <td>Heapsort</td>
+    <td align="center" colspan="2" style="color:orange">O(n log(n))</td>
+    <td style="color:green">O(1)</td>
+    </tr>
+    <tr>
+    <td>Radix Sort</td>
+    <td align="center" colspan="2" style="color:green">O(nk)</td>
+    <td style="color:#CCCC00">O(n+k)</td>
+    </tr>
+    </tbody>
+</table>
+
+
 ### Sum formulas
 Sum of consecutive integers 1 to 100:<br><br>
 $\sum_{k=1}^n a = 1 + 2 + 3 + ... + n = \frac{n(n + 1)}{2}$<br><br>
