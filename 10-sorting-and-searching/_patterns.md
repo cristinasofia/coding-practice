@@ -75,22 +75,64 @@
 4. Continue to sweep array until end
 
 ## Selection Sort
-1. Linear search for smallest element
-2. Move it to front (swap)
-3. Linear search for second smallest
-4. Swap
-5. Continue until all elements are in place
+1. Linear search for smallest element. Swap with first element.
+2. Linear search for second smallest. Swap with second element.
+3. Repeat finding the next-smallest element, and swapping until the array is sorted.
+
+```python
+# adds sorted numbers to the right end of the array
+def selectionsort(arr):
+    n = len(arr)
+    for i in reversed(range(n)):
+        max_index = 0
+        for j in range(1,i+1):
+            if arr[j] > arr[max_index]:
+                max_index = j
+
+        if max_index != i:
+            arr[i], arr[max_index] = arr[max_index], arr[i]
+```
 
 ## Insertion Sort
+1. Picks one element of array
+2. Finds location it belongs
+3. Inserts in the array
+
+```python
+def insertionsort(arr):
+    n = len(arr)
+    for i in range(n):
+        temp = arr[i]
+        moved = False
+        placed = False
+       
+        for j in reversed(range(i)):
+
+            if arr[j] > temp:
+                # shift numbers until you find it's location
+                arr[j+1] = arr[j]
+                moved = True
+            else:
+                arr[j+1] = temp
+                placed = True
+                break
+    
+        # edge case
+        if moved and not placed:
+            arr[0] = temp
+```
+## Best: O(n)
+If we're inserting 13 into the subarray [2, 3, 5, 7, 11], no element has to slide to the right. The element is less than every element to its left.
+## Average/Worse: O(n^2)
+If we're inserting 0 into the subarray [2, 3, 5, 7, 11], then every element in the subarray has to slide over one position to the right.
 
 ## Quicksort
 1. Pick random element
 2. Partition array such that all numbers on left of partitioned element are smaller, and all numbers to the right are bigger
 3. Keep partitioning until sorted
 
-<span style="color:red">O(n^2)</span> Partitioned element is not guaranteed to be the median or anywhere near the median, thus can be slow.
-
 ```python
+# method 1
 def partition(l, r):
     low = l
     while l < r:
@@ -107,12 +149,107 @@ def quickSort(l, r):
         quickSort(pos + 1, r)       # go right
     if l < pos:             
         quickSort(l, pos - 1)       # go left
+
+# method 2
+
+def quickSort(arr, l, r):
+    if r-l <= 0:
+        return
+    
+    m = (l+r) //2
+    i, j = l, r
+    
+    while i <= j:
+        while arr[i] < arr[m]:
+            i += 1
+        while arr[m] < arr[j]:
+            j -= 1
+        if i <= j:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+            j -= 1
+    
+    quicksort(arr, l, i-1)
+    quicksort(arr, i, r)
+
+# quickSort(arr, 0, len(arr) - 1)
 ```
+## Best/Average: O(nlogn)
+Balanced partitions.
+## Worst: O(n^2)
+Partitioned element is not guaranteed to be the median or anywhere near the median, thus can be slow.
 
 ## Merge Sort
 1. Divide and conquer
 
+```python
+
+def mergesort(arr, l, r):
+    if l < r:
+        m = (l + r) // 2
+        mergesort(arr, l, m)
+        mergesort(arr, m + 1, r)
+        
+        merge(arr, l, m, r)
+        
+def merge(arr, l, m, r):
+    left = arr[l:m+1]
+    right = arr[m+1:r+1]
+    
+    i, j, k = 0, 0, l
+    
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            arr[k] = left[i]
+            i += 1
+        else:
+            arr[k] = right[j]
+            j += 1
+        k += 1
+        
+    while i < len(left):
+        arr[k] = left[i]
+        i += 1
+        k += 1
+    while j < len(right):
+        arr[k] = right[j]
+        j += 1
+        k += 1
+
+       
+#mergesort(arr, 0, len(arr) - 1)
+```
+
 ## Heapsort
+
+```python
+def heapsort():
+    for i in reversed(range(n/2 - 1)):
+        heapify(n, i)
+    
+    for i in reversed(range(n - 1)):
+        arr[0], arr[i] = arr[i], arr[0]
+        heapify(i, 0)
+
+def heapify(n, i):
+    largest = i
+    l = (2*i) + 1
+    r = (2*i) + 2
+    
+    # if left child is larger than root
+    if l < n and arr[largest] < arr[l]:
+        largest = l
+    # if right child is larger than largest found
+    if r < n and arr[largest] < arr[r]:
+        largest = r
+    # if largest element is not root
+    if largest != i:
+        arr[largest], arr[i] = arr[i], arr[largest]
+        heapify(n, largest)
+
+
+#heapsort()
+```
 
 ## Radix Sort
 1. Iterate through each digit of each number

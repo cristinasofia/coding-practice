@@ -13,11 +13,16 @@ Usually for sorting.
 ### O(n^2)
 A **quadratic** algorithm contains nested loops.
 
+### O(n^2 logn)
+### O(n^3)
+
 ### O(2^n)
 Usually for iterating through all subsets.
 
 ### O(n!)
 Usually for iterating all permutations.
+
+Note: An exponential function a^n where a > 1 grows faster than any polynomial n^b where b is any constant.
 
 <table>
     <tbody><tr>
