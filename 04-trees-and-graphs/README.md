@@ -98,10 +98,83 @@ Upon insertion, balance might change to -2 or 2.
 - Number of nodes where k is the number of levels:
 $$2^k - 1 $$
 
-## Traversal
+## Binary Tree Traversal
 - In-Order: Left, Root, Right
+
+```python
+# 94 https://leetcode.com/problems/binary-tree-inorder-traversal/
+def inorderTraversal(root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+    res = []
+    if not root:
+        return res
+    
+    stack = []
+    while stack or root:
+        while root:
+            stack.append(root)
+            root = root.left
+        
+        root = stack.pop()
+        res.append(root.val)
+        root = root.right
+    
+    return res
+```
+
 - Pre-Order: Root, Left, Right
+
+```python
+# 144 https://leetcode.com/problems/binary-tree-preorder-traversal/
+def preorderTraversal(self, root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+    res = []
+    if not root:
+        return res
+    
+    stack = [root]
+    while stack:
+        root = stack.pop()
+        res.append(root.val)
+        if root.right:
+            stack.append(root.right)
+        if root.left:
+            stack.append(root.left)
+    
+    return res
+```
+
 - Post-Order: Left, Right, Root
+
+```python
+# 145 https://leetcode.com/problems/binary-tree-postorder-traversal/
+def postorderTraversal(self, root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+
+    res = []
+    if not root:
+        return res
+    
+    stack = [root]
+    while stack:
+        root = stack.pop()
+        res = [root.val] + res
+        if root.left:
+            stack.append(root.left)
+        if root.right:
+            stack.append(root.right)
+    
+    return res
+```
 
 ## Traversing Nodes
 ```python

@@ -15,16 +15,16 @@ def levelOrder(root):
     if not root:
         return levels
     
-    def helper(node, level):
-        if len(levels) == level:
+    def helper(node, l):
+        if len(levels) == l:
             levels.append([])
             
-        levels[level].append(node.val)
+        levels[l].append(node.val)
         
         if node.left:
-            helper(node.left, level+1)
+            helper(node.left, l+1)
         if node.right:
-            helper(node.right, level+1)
+            helper(node.right, l+1)
     
     helper(root, 0)
     return levels
