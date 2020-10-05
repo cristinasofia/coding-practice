@@ -112,7 +112,7 @@ def clear_bit(x, k):
 # 3   2   1   0
 8
 ```
-Toggle the kth bit: num ^= (1 << k).
+Toggle the kth bit
 ```python
 def flip_bit(x, k):
     return x ^ (1 << k)
