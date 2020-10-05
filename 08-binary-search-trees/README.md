@@ -32,47 +32,21 @@
       <td align="center" colspan="4" style="color:#9acd32">O(log(n))</td>
       <td align="center" colspan="5" style="color:#CCCC00">O(n)</td>
     </tr>
-    </tr>
-    <tr>
-        <td><a href="http://en.wikipedia.org/wiki/AVL_tree">AVL Tree</a></td>
-        <td align="center" colspan="8" style="color:#9acd32">O(log(n))</td>
-        <td style="color:#CCCC00">O(n)</td>
-    </tr>
-    <tr>
-      <td><a href="http://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a></td>
-      <td align="center" colspan="8" style="color:#9acd32">O(log(n))</td>
-      <td style="color:#CCCC00">O(n)</td>
-    </tr>
 </tbody>
 </table>
 
-## Balanced
-### AVL
-Stores in each node the height of the subtrees rooted at this node.
-Check if height balanced: height of left subtree and height of right subtree differ by 1:
-```
-  balance(n) = n.left.height - n.right.height
-```
+## Binary Search Tree Traversal
+- In-Order: Retrieves keys in ascending order.
+- Reverse in-order: Retrieves keys in descending order.
+- Pre-Order: Topological sort, because a parent node is process before any of its child nodes.
+- Post-Order
 
-**Inserts**
-Upon insertion, balance might change to -2 or 2.
-- If balance is 2: rotate Left, rotate Right
-- If balance is -2: rotate Right, rotate Left
+## Search
 
+## Insert
 
-**Pros:** Frequent data lookup queries.
-**Cons:** Frequent insertions and deletions.
+## Delete
 
-
-### Red-Black Trees
-1. Every node is red or black.
-2. The root is black.
-3. The leaves (NULL nodes) are black.
-4. Every red node must have two black children (red node cannot have black children, nlack node can have black children).
-5. Every path from node to its leaves must have the same number of black children.
-
-**Pros:** Less memory, can rebalance faster (faster insertion/deletions), used in situations where tree will be modified frequently.
-**Cons:** Lookups aren't as good as Hashtables.
 
 ## BFS with Queue
 Pop from left, then go left, then go right
@@ -139,6 +113,69 @@ return False
 Good for:
 - Depth of binary tree
 - Finding a path sum
+
+<table>
+    <tbody><tr>
+      <th>Data Structure</th>
+      <th colspan="8">Time Complexity</th>
+      <th>Space Complexity</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th colspan="4">Average</th>
+      <th colspan="4">Worst</th>
+      <th>Worst</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Access</th>
+      <th>Search</th>
+      <th>Insertion</th>
+      <th>Deletion</th>
+      <th>Access</th>
+      <th>Search</th>
+      <th>Insertion</th>
+      <th>Deletion</th>
+      <th></th>
+    </tr>
+    <tr>
+        <td><a href="http://en.wikipedia.org/wiki/AVL_tree">AVL Tree</a></td>
+        <td align="center" colspan="8" style="color:#9acd32">O(log(n))</td>
+        <td style="color:#CCCC00">O(n)</td>
+    </tr>
+    <tr>
+      <td><a href="http://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a></td>
+      <td align="center" colspan="8" style="color:#9acd32">O(log(n))</td>
+      <td style="color:#CCCC00">O(n)</td>
+    </tr>
+</tbody>
+</table>
+
+## Balanced
+### AVL
+Stores in each node the height of the subtrees rooted at this node.
+Check if height balanced: height of left subtree and height of right subtree differ by 1:
+```
+  balance(n) = n.left.height - n.right.height
+```
+
+**Inserts**
+Upon insertion, balance might change to -2 or 2.
+- If balance is 2: rotate Left, rotate Right
+- If balance is -2: rotate Right, rotate Left
+
+**Pros:** Frequent data lookup queries.
+**Cons:** Frequent insertions and deletions.
+
+### Red-Black Trees
+1. Every node is red or black.
+2. The root is black.
+3. The leaves (NULL nodes) are black.
+4. Every red node must have two black children (red node cannot have black children, nlack node can have black children).
+5. Every path from node to its leaves must have the same number of black children.
+
+**Pros:** Less memory, can rebalance faster (faster insertion/deletions), used in situations where tree will be modified frequently.
+**Cons:** Lookups aren't as good as Hashtables.
 
 ### Minimum Spanning Trees
 In a **weighted, connected, undirected graph**, a spanning tree is a tree that connects all the vertices. The minimum spanning tree is the spanning tree with minimum weight. There are various algorithms to do this.

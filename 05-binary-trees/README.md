@@ -22,15 +22,12 @@
 $$2^k - 1 $$
 
 ## Binary Tree Traversal
-- In-Order: Left, Root, Right
-
+### In-Order: Left, Root, Right
 ```python
 # 94 https://leetcode.com/problems/binary-tree-inorder-traversal/
-def inorderTraversal(root):
-    """
-    :type root: TreeNode
-    :rtype: List[int]
-    """
+
+def inorder_iterative(self, root):
+
     res = []
     if not root:
         return res
@@ -46,17 +43,20 @@ def inorderTraversal(root):
         root = root.right
     
     return res
+
+def inorder_recursive_(self, root):
+
+    def inorder(root):
+        return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+    return inorder(root)
 ```
 
-- Pre-Order: Root, Left, Right
-
+### Pre-Order: Root, Left, Right
 ```python
 # 144 https://leetcode.com/problems/binary-tree-preorder-traversal/
-def preorderTraversal(self, root):
-    """
-    :type root: TreeNode
-    :rtype: List[int]
-    """
+
+def preorder_iterative(self, root):
+
     res = []
     if not root:
         return res
@@ -71,17 +71,19 @@ def preorderTraversal(self, root):
             stack.append(root.left)
     
     return res
+
+def preorder_recursive(self, root):
+
+    def preorder(root):
+        return [root.val] + preorder(root.left) + preorder(root.right) if root else []
+    return preorder(root)
 ```
 
-- Post-Order: Left, Right, Root
-
+### Post-Order: Left, Right, Root
 ```python
 # 145 https://leetcode.com/problems/binary-tree-postorder-traversal/
-def postorderTraversal(self, root):
-    """
-    :type root: TreeNode
-    :rtype: List[int]
-    """
+
+def postorder_iterative_(self, root):
 
     res = []
     if not root:
@@ -97,6 +99,12 @@ def postorderTraversal(self, root):
             stack.append(root.right)
     
     return res
+
+def postorder_recursive(self, root):
+
+    def postorder(root):
+        return postorder(root.left) + postorder(root.right) + [root.val] if root else []
+    return postorder(root)
 ```
 
 ## Counting Nodes
