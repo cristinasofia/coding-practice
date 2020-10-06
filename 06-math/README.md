@@ -45,6 +45,8 @@ From highest to lowest precedence:
 
 </table>
 
+**Note:** bit operation modulo 2^t: for any s: s % (2^t) = s &(1<<t) - 1.
+
 ### Methods
 ```python
 >>> float('inf') # MAX_INT

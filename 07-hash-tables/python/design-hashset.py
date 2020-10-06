@@ -1,46 +1,29 @@
-## Hash Functions
-1. Should efficiently compute.
-2. Should uniformly distribute the keys.
-   
-### Hashing Methods 
-1. Mod hashing
-```
-hash_value = key % table_size
-```
-```python
-# string hash function example
-def hash_func(key):
-    for k in key:
-        hash_val = 37 * hash_val + k
-    
-    return hash_val % table_size
-```
-2. Multiplicative hashing
-```python
-# hash_func(key) = floor((a * key * mod 2^w)/(2^(w-m))) = ((k * a) & (1<<m) - 1) >> w
-# where a is a random odd number
-# m is the length of bits of output/table size 
-# w is the size of the machine word (32 bits)
-def hash_func(key):    
-    return ((key*1031237) & (1<<20) - 1)>>5
-```
-
-## Hash Set Implementation
-```python
+# 705 https://leetcode.com/problems/design-hashset/
 class Bucket:
     def __init__(self):
         self.bucket = []
     
     def add(self, key):
-        if key not in self.bucket:
+        found = False
+        for i, k in enumerate(self.bucket):
+            if key == k:
+                self.bucket[i] = key
+                found = True
+                break
+        
+        if not found:
             self.bucket.append(key)
     
     def remove(self, key):
-        if key in self.bucket:
-            self.bucket.remove(key)
+        for i, k in enumerate(self.bucket):
+            if key == k:
+                del self.bucket[i]
     
     def contains(self, key):
-        return key in self.bucket
+        for k in self.bucket:
+            if key == k:
+                return True
+        return False
     
 class MyHashSet(object):
 
@@ -76,4 +59,10 @@ class MyHashSet(object):
         hash = key % self.capacity
         return self.table[hash].contains(key)
         
-```
+
+
+# Your MyHashSet object will be instantiated and called as such:
+# obj = MyHashSet()
+# obj.add(key)
+# obj.remove(key)
+# param_3 = obj.contains(key)
