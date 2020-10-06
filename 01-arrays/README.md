@@ -14,28 +14,55 @@
   - min(A), max(A), 
   - binary search for sorted lists: bisect.bisect(arr,6), bisect.bisect-left(arr,6), bisect.bisect_right(arr,6)
   - A.reverse() (in-place), reversed(A) (returns an iterator)
-  - A.sor() (in-place), sorted(A) (returns a copy)
+  - A.sort() (in-place), sorted(A) (returns a copy)
   - del A[i] (deletes the i-th element), del A[i:j] (removes the slice)
 - Slicing: 
-  - Let A = [1, 6, 3, 4, 5, 2, 7].
-    - A[2:4] is [3, 4]
-    - A[2:] is [3, 4, 5, 2, 7]
-    - A[:4] is [1, 6, 3, 4)
-    - A[:-1] is [1, 6, 3, 4, 5, 2]
-    - A[-3:] is [5, 2, 7]
-    - A[-3:-1] is [5, 2]
-    - A[1:5:2] is [6, 4]
-    - A[5:1:-2] is [2, 4]
-    - A[::-1] is [7, 2, 5, 4, 3, 6, 1] (reverses list)
-  - Rotate a list: A[k:] + A[:k] rotates A by k to the left.
-  - Create a copy: B = A[:] (shallow copy of A into B)
+```python 
+A = [1, 6, 3, 4, 5, 2, 7]
+>>> A[2:4]
+[3, 4]
+>>> A[2:]
+[3, 4, 5, 2, 7]
+>>> A[:4]
+[1, 6, 3, 4)
+>>> A[:-1]
+[1, 6, 3, 4, 5, 2]
+>>> A[-3:]
+[5, 2, 7]
+>>> A[-3:-1]
+[5, 2]
+>>> A[1:5:2]
+[6, 4]
+>>> A[5:1:-2]
+[2, 4]
+>>> A[::-1]
+[7, 2, 5, 4, 3, 6, 1] # reverses list
+>>> A[k:] + A[:k] 
+# rotates A by k to the left.
+>>> B = A[:]
+# shallow copy of A into B
+```
 - Loops
-  - [x**2 for x in range(6)] is [0, 1, 4, 9, 16, 25]
-  - [x**2 for x in range(6) if x%2 == 0] is [0, 4, 16]
-  - If A = [1, 3, 5] and B = ['d', 'b'], then [(x, y) for x in A for y in B] is [(1, 'a'), (1, 'b'), (3, 'a'), (3, 'b'), (5, 'a'), (5, 'b')]
-  - 2D to 1D list: if M = [['a', 'b', 'c'], ['d', 'e','f']], x for row in M for x in row is ['a', 'b', 'c', 'd', 'e', 'f ']
-  - If A = [[1, 2, 3], [4, 5, 6]] then [[x**2 for x in row] for row in M] is [[1, 4, 9], [16, 25, 36]]
+```python
+>>> [x**2 for x in range(6)]
+[0, 1, 4, 9, 16, 25]
 
+>>> [x**2 for x in range(6) if x%2 == 0]
+[0, 4, 16]
+
+>>> A = [1, 3, 5]
+>>> B = ['d', 'b']
+>>> [(x, y) for x in A for y in B]
+[(1, 'a'), (1, 'b'), (3, 'a'), (3, 'b'), (5, 'a'), (5, 'b')]
+
+>>> M = [['a', 'b', 'c'], ['d', 'e','f']]
+>>> [x for row in M for x in row]
+['a', 'b', 'c', 'd', 'e', 'f ']
+
+>>> A = [[1, 2, 3], [4, 5, 6]]
+>>> [[x**2 for x in row] for row in M]
+[[1, 4, 9], [16, 25, 36]]
+```
 
 ### Complexity
 - Accessing an element is **O(1)** constant because of indexing.
