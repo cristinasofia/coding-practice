@@ -1,4 +1,3 @@
-
 def ladderLength(beginWord, endWord, wordList):
     """
     :type beginWord: str
@@ -6,11 +5,26 @@ def ladderLength(beginWord, endWord, wordList):
     :type wordList: List[str]
     :rtype: int
     """
+    import string
+    q = [[beginWord,1]]
+    while q:
+        w, l = q.pop(0)
+        
+        if w == endWord:
+            return l
+        
+        for i in range(len(w)):
+            for c in string.ascii_lowercase:
+                x = w[:i] + c + w[i+1:]
+                if x in wordList:
+                    wordList.remove(x)
+                    q.append([x, l + 1])    
     
-    import collections
-    d = collections.Counter()
+    return 0
+
+def ladderLength_optimized(beginWord, endWord, wordList):
+    
     chars = set(w for word in wordList for w in word)
-    w_List = set(wordList)
     
     q = [[beginWord,1]]
     while q:
@@ -22,8 +36,8 @@ def ladderLength(beginWord, endWord, wordList):
         for i in range(len(w)):
             for c in chars:
                 x = w[:i] + c + w[i+1:]
-                if x in w_List:
-                    w_List.remove(x)
+                if x in wordList:
+                    wordList.remove(x)
                     q.append([x, l + 1])
     
     

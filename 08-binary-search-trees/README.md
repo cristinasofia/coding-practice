@@ -41,12 +41,37 @@
 - Pre-Order: Topological sort, because a parent node is process before any of its child nodes.
 - Post-Order
 
+### Successor
+"After node", i.e. the next node, or the smallest node after the current one.
+```python
+def successor(root):
+    root = root.right
+    while root.left:
+        root = root.left
+    return root
+```
+
+### Predecessor
+"Before node", i.e. the previous node, or the largest node before the current one.
+```python
+def predecessor(root):
+    root = root.left
+    while root.right:
+        root = root.right
+    return root
+```
+
 ## Search
+```python
+```
 
 ## Insert
+```python
+```
 
 ## Delete
-
+```python
+```
 
 ## BFS with Queue
 Pop from left, then go left, then go right
