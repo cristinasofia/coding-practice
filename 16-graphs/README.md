@@ -183,13 +183,13 @@ def dijkstras(grid):
 		if grid[1][i] > 0:
 			distance[i] = grid[1][i]
 	
-	for i in range(1, vertices):
+	for x in range(1, vertices):
 
 		# choose lowest cost element in the available set
 		min_v = vertices + 1
 		min_cost = 99
 
-		for j in range(1, vertices):
+		for i in range(1, vertices):
 			# find minimal element to add
 			if not visited[i]:
 				if distance[i] < min_cost:	# candidate found
@@ -197,7 +197,7 @@ def dijkstras(grid):
 					min_v = i
 		
 		visited[min_v] = True
-		for j in range(1, vertices):
+		for i in range(1, vertices):
 			if not visited[i]:
 				if distance[min_v] + grid[min_v][i] < distance[i]:
 					parent[i] = min_v
