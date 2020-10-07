@@ -174,9 +174,9 @@ def quickSort(arr, l, r):
 
 # quickSort(arr, 0, len(arr) - 1)
 ```
-## Best/Average: O(nlogn)
+### Best/Average: O(nlogn)
 Balanced partitions.
-## Worst: O(n^2)
+### Worst: O(n^2)
 Partitioned element is not guaranteed to be the median or anywhere near the median, thus can be slow.
 
 ## Merge Sort
