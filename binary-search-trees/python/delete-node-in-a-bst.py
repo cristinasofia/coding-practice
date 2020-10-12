@@ -21,10 +21,21 @@ BST = [5,3,6,2,4,null,7,1]
 1
 
 Hibbard's Algorithm:
-Case 0. Delete 7
-Case 1a. Delete 6
-Case 1b. Delete 2
-Case 2. Delete 3
+Case 0. Delete node with no children 
+ex. Delete 7
+Remove node from tree.
+
+Case 1a. Delete node with only right child 
+ex. Delete 6
+Remove node and replace with its child.
+
+Case 1b. Delete node with only left child 
+ex. Delete 2
+Remove node and replace with its child.
+
+Case 2. Delete node with 2 children 
+ex. Delete 3
+
 
 
 """
@@ -97,24 +108,17 @@ def deleteNode(root, key):
         return root
 
     # case 2. node has two children
-    # find successor of p
-    # note: succ(p) has no left child
-    if not p.right.left:
-
-        # right node of p is the successor
-        p.val = p.right.val
-        p.right = p.right.right
-        return root
-
     succ = p.right
-    succParent = p
-
-    # find successor node of p
-    while succ.left:
-        succParent = succ
-        succ = succ.left
-
-    p.val = succ.val
-    succParent.left = succ.right
+    if not succ.left: # successor of p has no left child
+        p.val = succ.val # p replaced by successor
+        p.right = succ.right # p's right subtree is replaced by succ's right subtree
+    else: # find successor of p
+        succParent = p # track successor parent
+        while succ.left:
+            succParent = succ
+            succ = succ.left
+            
+        p.val = succ.val # p replaced by successor
+        succParent.left = succ.right # successor parent's left subtree is replaced by successor's right subtree
 
     return root
