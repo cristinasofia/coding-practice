@@ -74,6 +74,26 @@
 3. Go on to next pair
 4. Continue to sweep array until end
 
+```python
+def bubblesort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(n -1-i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+def bubblesort_improved(arr):
+    n = len(arr)
+    for i in range(n):
+        finished = True
+        for j in range(n -1-i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                finished = False
+        if finished:
+            return
+```
+
 ## Selection Sort
 1. Linear search for smallest element. Swap with first element.
 2. Linear search for second smallest. Swap with second element.
@@ -121,9 +141,9 @@ def insertionsort(arr):
         if moved and not placed:
             arr[0] = temp
 ```
-## Best: O(n)
+### Best: O(n)
 If we're inserting 13 into the subarray [2, 3, 5, 7, 11], no element has to slide to the right. The element is less than every element to its left.
-## Average/Worse: O(n^2)
+### Average/Worse: O(n^2)
 If we're inserting 0 into the subarray [2, 3, 5, 7, 11], then every element in the subarray has to slide over one position to the right.
 
 ## Quicksort
