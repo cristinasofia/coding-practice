@@ -35,28 +35,22 @@ def deleteNode(root, key):
     :type key: int
     :rtype: TreeNode
     """
-    
-    def find_parent(node, val, p):
-        if not node or node.val == val:
-            return p
-        if val < node.val:
-            return find_parent(node.left, val, node)
-        if val > node.val:
-            return find_parent(node.right, val, node)
-
-    
-    def search(node, val):
-        if not node or node.val == val:
-            return node
-        if val < node.val:
-            return search(node.left, val)
-        if val > node.val:
-            return search(node.right, val)
         
-        
-    # find node
-    p = search(root, key)
+    # find node and its parent
+    p = root
+    parent = root
 
+    while p:
+        if p.val == key:
+            break
+        elif key < p.val:
+            parent = p
+            p = p.left
+        else: # key > p.val
+            parent = p
+            p = p.right
+
+    # not found, return BST
     if not p:
         return root
 
@@ -66,7 +60,6 @@ def deleteNode(root, key):
             root = None
             return root
 
-        parent = find_parent(root, p.val, None)
         # delete p from p's parent
         if parent.left == p:
             parent.left = None
@@ -81,8 +74,6 @@ def deleteNode(root, key):
             root = root.right
             return root
 
-        parent = find_parent(root, p.val, None)
-
         # link p's right child as p's parent child
         if parent.left == p:
             parent.left = p.right
@@ -96,8 +87,6 @@ def deleteNode(root, key):
         if p == root:
             root = root.left
             return root
-
-        parent = find_parent(root, p.val, None)
 
         # link p's right child as p's parent child
         if parent.left == p:
@@ -121,7 +110,6 @@ def deleteNode(root, key):
     succParent = p
 
     # find successor node of p
-
     while succ.left:
         succParent = succ
         succ = succ.left
