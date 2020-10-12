@@ -10,33 +10,44 @@
 """
 Note: No parent attribute in node
 
-BST = [5,3,6,2,4,null,7,1]
+BST = [5,3,8,2,4,6,9,1,null,null,null,null,7]
 
             5
           /    \
-        3       6
-      /   \       \
-    2       4       7
-  /
-1
+        3         8
+      /   \     /   \
+    2      4   6       9
+  /             \
+1               7
 
 Hibbard's Algorithm:
 Case 0. Delete node with no children 
 ex. Delete 7
 Remove node from tree.
 
-Case 1a. Delete node with only right child 
+Case 1. Delete node with child
+Case 1(a) Delete node with only right child 
 ex. Delete 6
 Remove node and replace with its child.
 
-Case 1b. Delete node with only left child 
+Case 1(b) Delete node with only left child 
 ex. Delete 2
 Remove node and replace with its child.
 
-Case 2. Delete node with 2 children 
-ex. Delete 3
+Case 2. Delete node with 2 children
+Set "succ" node to right subtree
 
+    (a) If succ has no left child
+    ex. Delete 3
+    4 has no left child, therefore 
+    i. switch 3 and 4 values
+    ii. assign 4's right tree as 3's right subtree
 
+    (b) else
+    ex. Delete 5
+    i. Look for succ (6) and succ's parent (8)
+    ii. switch 5 and 6 values
+    iii. assign 6's right tree as 8's right subtree (7)
 
 """
 # Method: Hibbard's Algorithm
