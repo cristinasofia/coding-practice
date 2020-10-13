@@ -8,7 +8,7 @@ def lengthOfLIS(self, nums):
     if not nums:
         return 0
     
-    dp = [1]*len(nums)
+    dp = [1] * len(nums)
     max_ans = 1
     
     for i in range(1, len(nums)):
