@@ -26,8 +26,6 @@ def maxPathSum(root):
         ans.append(path)
         
         return root.val + max(l, r)
-        
-        
 
     helper(root)
 
