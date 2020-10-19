@@ -15,8 +15,7 @@ def generateParenthesis(n):
                 backtrack(p + "(", l - 1, r)
             if r > l:
                 backtrack(p + ")", l, r - 1)
-                
-            
+    
             
     p = ""   
     backtrack(p, n, n)

@@ -143,22 +143,5 @@ return output
 
 ## Palindrome
 
-## Parentheses
-```python
-paren = []
-def backtrack(p, l, r):
-    if r == n:
-        paren.append(''.join(p))
-    else:
-        if l > r:
-            backtrack(p + ")", l, r + 1)
-        if l < n:
-            backtrack(p + "(", l, r - 1)
-        
-p = ""   
-backtrack(p, 0, 0)
-
-return paren
-```
 
 # Dynamic Programming
