@@ -45,6 +45,7 @@
         <th>B</th>
         <th>A and B</th>
         <th>A or B</th>
+        <th>A xor B</th>
         <th>not A</th>
     </tr>
     <tr>
@@ -52,6 +53,7 @@
         <td>0</td>
         <td>0</td>
         <td>0</td>
+        <td>0</td>
         <td>1</td>
     </tr>
     <tr>
@@ -59,6 +61,7 @@
         <td>0</td>
         <td>0</td>
         <td>1</td>
+        <td>1</td>
         <td>0</td>
     </tr>
     <tr>
@@ -67,12 +70,14 @@
         <td>0</td>
         <td>1</td>
         <td>1</td>
+        <td>1</td>
     </tr>
     <tr>
         <td>1</td>
         <td>1</td>
         <td>1</td>
         <td>1</td>
+        <td>0</td>
         <td>0</td>
     </tr>
 </table>
