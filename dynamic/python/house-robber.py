@@ -17,9 +17,7 @@ def rob(nums):
     dp[1] = nums[1]
     
     for i in range(2, n):
-        prev = dp[i-2]
-        dp[i] = max(dp[i-2] + nums[i], dp[i-1])
-        dp[i-1] = max(dp[i-1], prev)
-    
+        dp[i] = max(dp[i-1], dp[i-2] + nums[i])
+        dp[i-1] = max(dp[i-1], dp[i-2])
     
     return dp[n-1]

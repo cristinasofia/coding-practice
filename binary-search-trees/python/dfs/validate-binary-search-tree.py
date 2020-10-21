@@ -11,6 +11,29 @@ def isValidBST(root):
     :type root: TreeNode
     :rtype: bool
     """
+    
+    def helper(root, l, r):
+        if not root:
+            return True
+        if root.left:
+            if root.left.val < root.val and root.left.val > l:
+                pass
+            else:
+                return False
+        if root.right:
+            if root.right.val > root.val and root.right.val < r:
+                pass
+            else:
+                return False
+        return helper(root.left, l, root.val) and helper(root.right, root.val, r)
+            
+    return helper(root, float("-inf"), float("inf"))
+
+def isValidBST_iterative(root):
+    """
+    :type root: TreeNode
+    :rtype: bool
+    """
     if not root:
         return True
     
