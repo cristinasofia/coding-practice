@@ -127,6 +127,92 @@ if root:
 return total
 ```
 
+## DFS
+### Recursive
+```python
+res = []
+
+def dfs(root):
+    if root:
+        if not root.left and not root.right:
+            res.append(True)
+        if root.left:
+            dfs(root.left)
+        if root.right:
+            dfs(root.right)
+
+dfs(root)
+return res
+```
+
+### Iterative (Stack)
+Pop from right, then go right, then go left
+```python
+if not root:
+    return False
+
+s = [root]
+while s:
+    # pop right
+    n = s.pop()
+    if not n.left and not n.right:
+        return True
+    if n.right:
+        # right conditions
+        s.append(n.right)
+    if n.left:
+        # left conditions
+        s.append(n.left)
+
+return False
+```
+
+### Post Order
+1. Visit the children
+2. Visit myself
+
+Traverses tree in post-order:
+        1
+      /   \
+    2       3
+  /   \
+4       5
+
+Path: 4, 5, 2, 3, 1
+
+Example:
+Count and return the number of nodes where its value is greater than or equal to the values of all of its descendants.
+
+1. 4 compared to null and null
+   - If 4 is the max, answer increases by 1
+   - Return the max of the subtree
+2. 5 compared to null and null
+3. 2 compared to 4's and 5's subtree maximums
+4. 3 compared to null and null
+5. 1 compared to 2's and 3's subtree maximums
+
+```python
+ans = []
+
+def helper(root):
+    if not root:
+        return 0
+    
+    l = helper(root.left)
+    r = helper(root.right)
+    
+    path = # addition/comparison between root, left and right children
+    
+    ans.append(path)
+    # ans.append(1) if counting
+        
+    return # comparison between root, left and right children
+            # to be compared by the parent of the root
+
+helper(root)
+return # max/sum(ans)
+```
+
 ## BFS with Queue
 Pop from left, then go left, then go right
 ```python
@@ -148,45 +234,3 @@ while q:
 
 return False
 ```
-
-## DFS Recursive
-```python
-res = []
-
-def dfs(root):
-    if root:
-        if not root.left and not root.right:
-            res.append(True)
-        if root.left:
-            dfs(root.left)
-        if root.right:
-            dfs(root.right)
-
-dfs(root)
-return res
-```
-
-## DFS with Stack
-Pop from right, then go right, then go left
-```python
-if not root:
-    return False
-
-s = [root]
-while s:
-    # pop right
-    n = s.pop()
-    if not n.left and not n.right:
-        return True
-    if n.right:
-        # right conditions
-        s.append(n.right)
-    if n.left:
-        # left conditions
-        s.append(n.left)
-
-return False
-```
-Good for:
-- Depth of binary tree
-- Finding a path sum
