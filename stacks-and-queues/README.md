@@ -74,30 +74,8 @@ class Queue:
 
     def dequeue(self, x):       # removes item from left
         return self.q.pop(0)    # O(1)
-    
-```
 
-### Stack vs. Queue
-- Implement stack using two queues:
-```python
-class Stack:
-    def __init__(self):
-        self.q1 = []
-        self.q2 = []
-
-    def push(self, x):
-        self.q1.append(x)
-    
-    def pop(self):
-        while len(self.q1) > 1:
-            x = self.q1.pop(0)
-            self.q2.append(x)
-        
-        return self.q1.pop(0)
-```
-
-- Implement queue using two stacks:
-```python
-class Queue:
+    def peek(self):             # front element
+        return self.q[0]    
     
 ```
