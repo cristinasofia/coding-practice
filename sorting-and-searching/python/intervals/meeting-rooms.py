@@ -1,34 +1,65 @@
+# 252 https://leetcode.com/problems/meeting-rooms/submissions/
 
-def merge(intervals):
-    merge = []
-    intervals.sort(key=lambda x:x[0])
+def canAttendMeetings(intervals):
+    """
+    :type intervals: List[List[int]]
+    :rtype: bool
+    """
 
+    start = []
+    end = []
+    for i in intervals:
+        start.append(i[0])
+        end.append(i[1])
+    
+    start.sort()
+    end.sort()
+    
+    for i in range(1, len(intervals)):
+        if start[i] < end[i-1]:
+            return False
+            
+    return True
 
-    return merge
+# 253 https://leetcode.com/problems/meeting-rooms-ii/
 
-def meetings1(intervals):
+def minMeetingRooms(intervals):
+    """
+    :type intervals: List[List[int]]
+    :rtype: int
+    """
+            
+    start = []
+    end = []
+    for i in intervals:
+        start.append(i[0])
+        end.append(i[1])
+    
+    start.sort()
+    end.sort()
+    
+    rooms = 0
+    j = 0
+    for i in range(len(start)):
+        if start[i] < end[j]:
+            rooms += 1
+        else:
+            j += 1
 
-def meetings2(intervals):
-
-
-# Given a collection of intervals, merge all overlapping intervals.
-
-intervals = [[1,3],[2,6],[8,10],[15,18]]
-# [[1,6],[8,10],[15,18]]
-print(merge(intervals))
+    return rooms
 
 # Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), 
 # determine if a person could attend all meetings.
 
 m1 = [[0,30],[5,10],[15,20]]
 
-print(meetings1(m1))
+print(canAttendMeetings(m1))
 
 # Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), 
 # find the minimum number of conference rooms required.
 
 m2 = [[0,30],[5,10],[15,20]]
 
-print(meetings2(m2))
+print(minMeetingRooms(m2))
 
  
