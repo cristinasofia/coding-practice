@@ -8,7 +8,6 @@ class MyStack(object):
         """
         self.a = []
         self.b = []
-        
 
     def push(self, x):
         """
@@ -23,23 +22,19 @@ class MyStack(object):
         Removes the element on top of the stack and returns that element.
         :rtype: int
         """
-        
         while len(self.a) > 1:
             x = self.a.pop(0)
             self.b.append(x)
         top = self.a.pop(0)
         self.a, self.b = self.b, self.a
         return top
-      
 
     def top(self):
         """
         Get the top element.
         :rtype: int
         """
-
         return self.a[-1]
-        
 
     def empty(self):
         """

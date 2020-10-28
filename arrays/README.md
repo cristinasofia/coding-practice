@@ -219,3 +219,99 @@ def by_quickselect(self, points, K):
         
     return select(0, len(points)-1)
 ```
+
+## Methods
+Increment an arbitrary-precision integer
+```python
+```
+Multiply two arbitrary-precision integers
+```python
+```
+Advancing through an array
+```python
+```
+Delete duplicates from sorted array
+```python
+```
+Buy and sell a stock once
+```python
+```
+Buy and sell a stock twice
+```python
+```
+Computing an alternation
+```python
+```
+Enumerate all primes to n
+```python
+```
+Permute the elements of an array
+```python
+```
+Compute the next permutation
+```python
+```
+Sample offline data
+```python
+```
+Sample online data
+```python
+```
+Compute random permutation
+```python
+```
+Compute a random subset
+```python
+```
+Generate nonuniform random numbers
+```python
+```
+Sudoku checker problem
+```python
+```
+Compute spiral ordering of a 2D array.
+```python
+def spiral_ordering(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    shift = [(0,1),(1,0),(0,-1),(-1,0)]
+    direction, x, y = 0, 0, 0
+    res = []
+
+    for _ in range(rows * cols):
+        res.append(matrix[x][y])
+        matrix[x][y] = 0 # set element as visited
+        dx, dy = shift[direction][0], shift[direction][1]
+        xx, yy = x + dx, y + dy
+
+        # if out of bounds, or element has been visited
+        if 0 > xx or 0 > yy or xx >= rows or yy >= cols or matrix[xx][yy] == 0:   
+            direction = (direction + 1) & 3 # or (direction + 1) % 4
+            dx, dy = shift[direction][0], shift[direction][1]
+            xx, yy = x + dx, y + dy
+            
+        x, y = xx, yy
+
+    return res
+```
+Rotate a 2D array
+```python
+def rotate(matrix):
+    n = len(matrix) - 1
+    for i in range(n // 2):
+        for j in range(i, n - i):
+            # A[~i] = A[-(i+1)]
+            matrix[i][j], matrix[~j][i], matrix[~i][~j], matrix[j][~i] = matrix[~j][i], matrix[~i][~j], matrix[j][~i], matrix[i][j]
+```
+Compute rows in Pascal's triangle
+```python
+def pascal(n):
+    dp = [[1] * (i+1) for i in range(n)]
+    
+    for i in range(n):
+        for j in range(1, i):
+            dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
+    
+    return dp
+```

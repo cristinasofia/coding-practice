@@ -2,7 +2,6 @@ def merge(intervals):
     merge = []
     intervals.sort(key=lambda x:x[0])
 
-
     return merge
 
 # Given a collection of intervals, merge all overlapping intervals.

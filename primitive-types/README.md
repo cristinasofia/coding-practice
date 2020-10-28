@@ -128,7 +128,7 @@ def flip_bit(x, k):
 14
 ```
 
-## Useful Methods
+## Methods
 Check if a number is a power of 2
 ```python
 def is_power_of_2(x):
@@ -152,6 +152,36 @@ def parity(x):
         res ^= x & 1
         x >>= 1
     return res
+```
+Swap bits
+```python
+```
+Reverse bits
+```python
+```
+Find the closest integer with the same weight
+```python
+```
+Compute x * y without arithmetical operators
+```python
+```
+Compute x / y
+```python
+```
+Computer x^y
+```python
+```
+Reverse digits
+```python
+```
+Check if a deimal integer is a palindrome
+```python
+```
+Generate uniform random numbers
+```python
+```
+Rectangle intersection
+```python
 ```
 
 ### Corner cases

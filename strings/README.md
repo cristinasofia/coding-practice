@@ -155,3 +155,47 @@ All the regex functions in Python are in the re module:
 ```python
 >>> import re
 ```
+
+## Methods
+Interconvert strings and integers
+```python
+```
+Base conversion
+```python
+```
+Compute the spreadsheet column encoding
+```python
+```
+Replace and remove
+```python
+```
+Test palindromicity
+```python
+def is_palindrome(s):
+    # s[~i] = s[-(i+1)]
+    return all(s[i] == s[~i] for i in range(len(s)//2))
+```
+Reverse all the words in a sentence
+```python
+```
+Compute all mnemonics for a phone number
+```python
+```
+The look-and-say problem
+```python
+```
+Convert from Roman to decimal
+```python
+```
+Compute all valid IP addresses
+```python
+```
+Write a string sinusoidally
+```python
+```
+Implement run-length encoding
+```python
+```
+Find the first occurrence of a substring
+```python
+```

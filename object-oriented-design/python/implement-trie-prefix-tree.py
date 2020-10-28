@@ -11,6 +11,7 @@ class Trie(object):
         """
         self.root = Node()
 
+    # returns an integer representing the Unicode character
     def char_to_index(self, ch):
         return ord(ch) - ord('a')
         
@@ -21,9 +22,8 @@ class Trie(object):
         :rtype: None
         """
         crawl = self.root
-        k = len(word)
-        for level in range(k):
-            index = self.char_to_index(word[level])
+        for w in word:
+            index = self.char_to_index(w)
             if not crawl.children[index]:
                 crawl.children[index] = Node()
             crawl = crawl.children[index]
@@ -37,9 +37,8 @@ class Trie(object):
         :rtype: bool
         """
         crawl = self.root
-        k = len(word)
-        for level in range(k):
-            index = self.char_to_index(word[level])
+        for w in word:
+            index = self.char_to_index(w)
             if not crawl.children[index]:
                 return False
             crawl = crawl.children[index]
@@ -54,11 +53,10 @@ class Trie(object):
         :rtype: bool
         """
         crawl = self.root
-        k = len(prefix)
-        for level in range(k):
-            index = self.char_to_index(prefix[level])
+        for p in prefix:
+            index = self.char_to_index(p)
             if not crawl.children[index]:
                 return False
             crawl = crawl.children[index]
         
-        return crawl
+        return True

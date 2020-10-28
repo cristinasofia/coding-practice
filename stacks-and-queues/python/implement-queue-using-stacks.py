@@ -33,8 +33,8 @@ class MyQueue(object):
         :rtype: int
         """
         if self.a:
-            return self.a[0]
-        return self.b[-1]
+            return self.a[0]    # front element either at front/bottom of stack a
+        return self.b[-1]          # or at back/top of stack b
 
     def empty(self):
         """

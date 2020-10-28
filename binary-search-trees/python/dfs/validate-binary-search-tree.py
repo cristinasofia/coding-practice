@@ -1,12 +1,23 @@
-#
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# 98 https://leetcode.com/problems/validate-binary-search-tree/
 
-def isValidBST(root):
+def isValidBST(self, root):
+    """
+    :type root: TreeNode
+    :rtype: bool
+    """
+    
+    def helper(root, l, r):
+        if not root:
+            return True
+        
+        if not l < root.val < r:
+            return False
+        
+        return helper(root.left, l, root.val) and helper(root.right, root.val, r)
+            
+    return helper(root, float("-inf"), float("inf"))
+
+def isValidBST_recursive(root):
     """
     :type root: TreeNode
     :rtype: bool
