@@ -79,6 +79,10 @@
    - How does a good engineer become a great engineer? (Career progression for particular role.)
    - How do you go about testing your products?
 
+5. Question Ideas
+   - What is the difference between a good engineer and a great engineer?
+   - What is one adjective you would use to describe your day (in this company and/or role)?
+
 ## Tips
 If input array is sorted then
 - Binary search
